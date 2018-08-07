@@ -28,7 +28,8 @@ public class Md5Encrypt {
         return result;
     }
 
-
+   /*
+   * 调用的借口*/
     /**
      * 将指定byte数组转换成16进制字符串
      * @param b

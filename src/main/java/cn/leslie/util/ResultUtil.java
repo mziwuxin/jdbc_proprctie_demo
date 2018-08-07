@@ -28,6 +28,7 @@ public class ResultUtil {
     private  int status;   //状态 1成功 0失败
     private String message; //错误信息
     private Object data;    //返回的数据
+    //封装+构造
 
 
     /*

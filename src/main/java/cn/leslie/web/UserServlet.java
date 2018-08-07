@@ -14,6 +14,7 @@ public class UserServlet extends BaseServlet{
         return UserServlet.class;
     }
     public ResultUtil login(HttpServletRequest req, HttpServletResponse resp){
+        //拿到页面的登录信息
         String userName=req.getParameter("username");
         String password=req.getParameter("password");
         ResultUtil util=new ResultUtil();

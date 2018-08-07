@@ -65,6 +65,7 @@ public abstract class BaseServlet extends HttpServlet {
                 req.getRequestDispatcher(viewNmae).forward(req,resp);
 
             }else{
+                //json模式
                 String resultJson=(String) JSON.toJSONString(result);
                  PrintWriter write=resp.getWriter();
                  write.write(resultJson);
