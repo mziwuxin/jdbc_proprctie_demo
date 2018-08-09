@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface IUserService<T> {
     /**
+     *
+     */
+    /**
      * 新增用户
      */
     int add(T t);

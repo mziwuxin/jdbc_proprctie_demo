@@ -24,6 +24,7 @@ public class Md5Encrypt {
             int pos = i * 2;
             result[i] = (byte) (HEX_NUMS_STR.indexOf(hexChars[pos]) << 4
                     | HEX_NUMS_STR.indexOf(hexChars[pos + 1]));  //此处不懂？？？？
+
         }
         return result;
     }

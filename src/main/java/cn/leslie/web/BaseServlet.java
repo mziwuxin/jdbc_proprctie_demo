@@ -38,6 +38,7 @@ public abstract class BaseServlet extends HttpServlet {
                 method=getServletClass().getDeclaredMethod(methodName,HttpServletResponse.class,HttpServletRequest.class);
                 //执行方法
                 try {
+
                    result=method.invoke(this,req,resp);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

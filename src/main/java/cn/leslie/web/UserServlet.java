@@ -41,6 +41,7 @@ public class UserServlet extends BaseServlet{
         String userName=req.getParameter("username");
         String password=req.getParameter("password");
         //创建出User类的实体来
+
         User user=new User();
         user.setUsername(userName);
         try {

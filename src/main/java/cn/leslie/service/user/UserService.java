@@ -8,5 +8,7 @@ import cn.leslie.service.IUserService;
  * 写自己的方法
  */
 public interface UserService extends IUserService<User> {
-
+/**
+ *
+ */
 }

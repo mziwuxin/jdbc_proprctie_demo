@@ -14,6 +14,7 @@ public class UserServiceImpl implements UserService {
      * @param user
      *
      * UserService的实现类，可以实现userService的所有的用到的方法
+     * 就是这样的
      * @return
      */
         private UserDao userDao=new UserImpl();

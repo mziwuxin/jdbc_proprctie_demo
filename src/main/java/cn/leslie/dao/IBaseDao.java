@@ -8,7 +8,10 @@ import java.util.List;
 public interface IBaseDao<T> {
     /**
      * 新增用户
+     *
+     *
      */
+
     int add(T t);
 
     /**

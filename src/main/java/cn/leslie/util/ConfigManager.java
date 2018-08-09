@@ -10,6 +10,7 @@ import java.util.Properties;
 *
 * 只要有需求说对象只出现一次实例化一次
 * 就是单例模式
+*
 * */
 public class ConfigManager {
     //01创建一个单例的变量

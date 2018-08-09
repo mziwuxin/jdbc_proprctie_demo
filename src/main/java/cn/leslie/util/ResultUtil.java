@@ -37,6 +37,7 @@ public class ResultUtil {
     public ResultUtil resultUtilsuccess(Object data ){
         this.data=data;
         this.status=1;
+
         return this;
     }
     /*

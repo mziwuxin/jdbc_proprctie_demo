@@ -46,6 +46,7 @@ public class PageUtil {
         if(totalCount>0){
             this.totalCount = totalCount;
             this.pageCount=(totalCount%pageSize==0)?(totalCount/pageSize):(totalCount/pageSize+1);
+
         }
 
     }

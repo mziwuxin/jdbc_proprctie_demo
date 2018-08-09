@@ -9,6 +9,11 @@ import java.io.Serializable;
 import java.util.List;
 
 public class UserImpl extends BaseDaoUtil implements UserDao {
+    /***
+     *
+     * @param user
+     * @return
+     */
     @Override
     public int add(User user) {
         String sql="insert into news_user(username,password,email) values(?,?,?,?)";

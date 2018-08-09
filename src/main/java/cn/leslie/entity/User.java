@@ -3,6 +3,9 @@ package cn.leslie.entity;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    /**
+     *
+     */
     private Integer user_id;
     private String username;
     private  String password;
