@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
 		http://twitter.com/halalit_usman
 	-->
 	<meta charset="utf-8">
-	<title></title>
+	<title>登录页面</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 	<meta name="author" content="Muhammad Usman">
@@ -67,7 +68,7 @@
 			<div class="row-fluid">
 				<div class="well span5 center login-box">
 					<div class="alert alert-info">
-						Please login with your Username and Password.
+						登录页面
 					</div>
 					<form class="form-horizontal" action="login?methodName=login" method="post">
 						<fieldset>
@@ -87,7 +88,7 @@
 							<div class="clearfix"></div>
 
 							<p class="center span5">
-							<button type="submit" class="btn btn-primary">Login</button>
+							<button type="submit" class="btn btn-primary">登录</button>
 							</p>
 						</fieldset>
 					</form>

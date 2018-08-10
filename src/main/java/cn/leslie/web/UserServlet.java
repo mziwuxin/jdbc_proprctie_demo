@@ -10,27 +10,53 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.sql.ResultSet;
 
 @WebServlet("/login")
 public class UserServlet extends BaseServlet{
     //不实例化service层对象  让工厂去实例化
     private UserService userService;
+    private  ResultUtil util=new ResultUtil();
     @Override
     protected Class getServletClass() {
         return UserServlet.class;
     }
-    public ResultUtil login(HttpServletRequest req, HttpServletResponse resp){
+    public String login(HttpServletRequest req, HttpServletResponse resp){
         //拿到页面的登录信息
         String userName=req.getParameter("username");
         String password=req.getParameter("password");
-        ResultUtil util=new ResultUtil();
-        if(userName.equals("admin")){
-            util.resultUtilsuccess(userName);
-        }else {
-            util.resultFail("错误了");
-        }
-            return util;
+        //get到扥到的用户名
+      String  passwordDB =userService.validateName(userName);
+      //判断如果数据库的用户名是否存在来判断是否执行以下代码
+      if(passwordDB==null){
+          try {
+              //判断输入的密码和数据库的密文密码是否一样执行登录
+              if(Md5Encrypt.validPassword(password,passwordDB)){
+                  //拿到user的实例的值
+                    User user=userService.login(userName,passwordDB);
+                    req.getSession().setAttribute("loginUser",user);
+                    return "main";
+
+
+              }else {
+                  System.out.println("密码错误");
+              }
+
+          } catch (NoSuchAlgorithmException e) {
+              e.printStackTrace();
+          } catch (UnsupportedEncodingException e) {
+              e.printStackTrace();
+          }
+
+
+      }else{
+          //错误
+          util.resultFail("用户名不存在");
+      }
+
+        //userService.login(userName,password);
+
+        return "login";
+
     }
 
     /**
@@ -62,4 +88,26 @@ public class UserServlet extends BaseServlet{
         }
 
     }
+
+    /**
+     * ajax对前台传过来的用户的验证
+     * @param req
+     * @param resp
+     * @return
+     */
+    public ResultUtil validateName(HttpServletRequest req, HttpServletResponse resp){
+        //System.out.println("=========================");
+       String  userName=req.getParameter("username");
+       //调用service的方法
+       String passwordDB=userService.validateName(userName);
+       if(passwordDB==null){
+           //验证的用户名不存在也就是说没有这个用户
+           //n那么就可以注册用户
+           util.resultUtilsuccess();
+       }else {
+           util.resultFail("昵称已经被注册了亲！！！！");
+       }
+         return util;
+    }
+
  }

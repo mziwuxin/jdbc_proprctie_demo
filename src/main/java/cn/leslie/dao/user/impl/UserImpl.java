@@ -4,6 +4,7 @@ import cn.leslie.dao.user.UserDao;
 import cn.leslie.entity.User;
 import cn.leslie.util.BaseDaoUtil;
 import cn.leslie.util.PageUtil;
+import cn.leslie.util.ResultSetUtil;
 
 import java.io.Serializable;
 import java.util.List;
@@ -50,5 +51,29 @@ public class UserImpl extends BaseDaoUtil implements UserDao {
     @Override
     public List<User> findAllByPage(PageUtil util) {
         return null;
+    }
+
+    @Override
+    public String validateName(String userName) {
+        String sql = "SELECT password FROM news_user WHERE userName=?";
+        rs =executeQuery(sql);
+        String password = null;
+        try { //获取密码
+            if (rs.next()) {
+                password = rs.getString("password");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return password;
+    }
+
+    @Override
+    public User login(String userName, String password) {
+        String sql="SELECT id as users_id,userName,PASSWORD,email,userType FROM news_user where userName=? and password=?";
+        Object [] params={userName,password};
+        rs=executeQuery(sql,params);
+        User users= ResultSetUtil.eachOne(rs,User.class);
+        return users;
     }
 }

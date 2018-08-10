@@ -40,6 +40,17 @@ public class ResultUtil {
 
         return this;
     }
+
+    /**
+     *
+     * @return
+     */
+    public ResultUtil resultUtilsuccess( ){
+        ;
+        this.status=1;
+
+        return this;
+    }
     /*
     *
     * FailMethod

@@ -84,5 +84,25 @@ public class BaseDaoUtil {
         }
         return num;
     }
+    /**
+     * 03.查
+     */
+    public  ResultSet executeQuery(String sql,Object...params){
+        if (getConcetion()){
+            try {
+                ps= connection.prepareStatement(sql); //获取执行sql语句的对象
+                if (params!=null){ //有参数  有几个？
+                    for (int i = 0; i <params.length ; i++) {
+                        ps.setObject(i+1,params[i]);
+                    }
+                }
+                rs= ps.executeQuery();//调用底层代码
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return  rs;
+    }
+
 
 }

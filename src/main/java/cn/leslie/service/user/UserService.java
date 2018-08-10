@@ -9,6 +9,12 @@ import cn.leslie.service.IUserService;
  */
 public interface UserService extends IUserService<User> {
 /**
+ *重写验证用户名的方法
  *
  */
+  String  validateName(String username);
+    /**
+     *登录时的
+     */
+    User login(String username,String password);
 }
